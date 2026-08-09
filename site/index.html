@@ -5,6 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Anticline Collective — Gorge artists, temporarily everywhere</title>
 <meta name="description" content="A temporary artist collective in the Columbia River Gorge. Movable by design.">
+<meta name="theme-color" content="#1c1a17">
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
 <style>
   :root {
     --basalt: #1c1a17;
@@ -34,7 +40,8 @@
     background: rgba(28,26,23,.92); backdrop-filter: blur(6px);
     border-bottom: 1px solid var(--rule);
   }
-  nav .mark { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 700; letter-spacing: .18em; font-size: .85rem; text-transform: uppercase; color: var(--bone); text-decoration: none; }
+  nav .mark { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 700; letter-spacing: .18em; font-size: .85rem; text-transform: uppercase; color: var(--bone); text-decoration: none; display: inline-flex; align-items: center; gap: .55rem; }
+  nav .mark svg { width: 1.35rem; height: 1.35rem; flex-shrink: 0; }
   nav .mark span { color: var(--ochre); }
   nav .links a { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; text-decoration: none; color: var(--bone-dim); margin-left: 1.6rem; }
   nav .links a:hover { color: var(--ochre); }
@@ -126,7 +133,14 @@
 <body>
 
 <nav>
-  <a class="mark" href="#top">ANTICLINE<span>&nbsp;COLLECTIVE</span></a>
+  <a class="mark" href="#top" aria-label="Anticline Collective">
+    <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M6 54 Q32 8 58 54 Z" fill="#26231f" stroke="#d98e32" stroke-width="2.5"/>
+      <path d="M14 54 Q32 22 50 54" fill="none" stroke="#57503f" stroke-width="2"/>
+      <path d="M22 54 Q32 34 42 54" fill="none" stroke="#3a352e" stroke-width="2"/>
+    </svg>
+    ANTICLINE<span>&nbsp;COLLECTIVE</span>
+  </a>
   <div class="links">
     <a href="#name">The Name</a>
     <a href="#how">How It Works</a>
@@ -161,8 +175,8 @@
   <div class="wrap">
     <h2>The Name</h2>
     <p class="bigline">Everyone in the Gorge calls Coyote Wall "the Syncline." One problem: it's an anticline.</p>
-    <p>The great wall of basalt above Bingen is folded rock pushed <strong>up</strong> — geologists call it the Bingen Anticline. The actual syncline, the downfold, sits under the Columbia River where nobody rides bikes. The nickname stuck anyway, and locals have argued about it in parking lots ever since.</p>
-    <p>We're named for the thing everybody sees and nobody calls by its right name. Pressure from all sides, folded, uplifted — still standing. If that's not a Gorge artist, what is?</p>
+    <p>The great wall of basalt above Bingen is folded rock pushed <strong>up</strong> -- geologists call it the Bingen Anticline. The actual syncline, the downfold, sits under the Columbia River where nobody rides bikes. The nickname stuck anyway.</p>
+    <p>We're named for the thing everybody sees and nobody calls by its right name. Pressure from all sides, folded, uplifted -- still standing, even higher. That's us.</p>
   </div>
 </section>
 
@@ -174,12 +188,12 @@
       <div class="card">
         <span class="num">01</span>
         <h3>Commission, not rent</h3>
-        <p>No monthly nut hanging over anybody. When work sells, the space and the collective take a cut. Sell nothing, owe nothing. Final split is being worked out — join the conversation and help shape it.</p>
+        <p>No monthly payment hanging over anybody. When work sells, the space and the collective take a cut. Sell nothing, owe nothing. Final split is being worked out -- join the conversation and help shape it.</p>
       </div>
       <div class="card">
         <span class="num">02</span>
         <h3>Movable by design</h3>
-        <p>Walls, panels, and display fixtures that break down and load into a truck. The same kit that fills the storefront works a First Friday in the Gorge or a Last Thursday on Alberta.</p>
+        <p>Walls, panels, and display fixtures that break down and load into a truck. The same kit that fills the storefront works a First Friday in the Gorge or a Last Thursday in White Salmon or Alberta.</p>
       </div>
       <div class="card">
         <span class="num">03</span>
@@ -189,7 +203,7 @@
       <div class="card">
         <span class="num">04</span>
         <h3>Honest terms</h3>
-        <p>The space is ours until a long-term tenant signs. Security cameras are going in, and we're sorting coverage for work on display. Everything is built to survive a move — including the name.</p>
+        <p>The space is ours until a long-term tenant signs. Security cameras are planned, and we're sorting coverage for work on display. Everything is built to survive a move -- including the name.</p>
       </div>
     </div>
   </div>
@@ -199,11 +213,10 @@
   <div class="wrap">
     <h2>The Artists</h2>
     <p class="bigline">Gorge people, not just Gorge landscapes.</p>
-    <p>Some of the work is about this place. A lot of it isn't — it's just made by people who live here. Both belong on the wall.</p>
+    <p>Some of the work is about this place. Plenty isn't, it's made by people who live here. Both belong on the wall.</p>
     <div class="artists">
       <span class="artist">Robby Miller</span>
       <span class="artist">Joseph Broschart</span>
-      <span class="artist">Claire Stevenson</span>
       <span class="artist more">+ more joining — maybe you?</span>
     </div>
   </div>
@@ -213,44 +226,18 @@
   <div class="wrap">
     <h2>Get Involved</h2>
     <p class="bigline">This thing gets shaped by whoever shows up early.</p>
-    <p>The real discussion happens on our Discord — commission structure, the space layout, popup schedule, all of it is still being decided. Want in? Say hello below or jump straight into the server.</p>
-    <p><a class="btn ghost" href="#" title="Discord invite coming soon">Join the Discord →</a></p>
-    <form id="joinForm">
-      <label for="f-name">Name</label>
-      <input id="f-name" name="name" required placeholder="Your name">
-      <label for="f-medium">What do you make?</label>
-      <input id="f-medium" name="medium" placeholder="Painting, ceramics, photography, weird stuff…">
-      <label for="f-links">Where can we see it?</label>
-      <input id="f-links" name="links" placeholder="Instagram, website, or 'come to my garage'">
-      <label for="f-msg">Anything else</label>
-      <textarea id="f-msg" name="message" placeholder="Ideas for the space, questions, what you'd want out of a collective…"></textarea>
-      <button class="btn" type="submit">Send It</button>
-      <p class="formnote">Opens an email to Daniel with your answers filled in — nothing is stored on this page.</p>
-    </form>
+    <p>The real discussion will happen on Discord/Slack/email: commission structure, the space layout, popup schedule, all of it is still being decided. Let's do this.</p>
+    <p><a class="btn ghost" href="mailto:info@anticline.art">Connect →</a></p>
+
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <p>Anticline Collective · Columbia River Gorge, WA/OR</p>
+    <p>Anticline Art Collective · Columbia River Gorge, WA/OR</p>
     <p>Quality control by Gilmore <span class="paw">🐾</span> resident dog</p>
   </div>
 </footer>
-
-<script>
-  document.getElementById('joinForm').addEventListener('submit', function (e) {
-    e.preventDefault();
-    var f = new FormData(this);
-    var body =
-      'Name: ' + (f.get('name') || '') + '\n' +
-      'Makes: ' + (f.get('medium') || '') + '\n' +
-      'Links: ' + (f.get('links') || '') + '\n\n' +
-      (f.get('message') || '');
-    window.location.href = 'mailto:daniel@anvilware.com'
-      + '?subject=' + encodeURIComponent('Anticline Collective — ' + (f.get('name') || 'new artist'))
-      + '&body=' + encodeURIComponent(body);
-  });
-</script>
 
 </body>
 </html>
