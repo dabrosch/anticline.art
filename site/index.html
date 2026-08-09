@@ -126,8 +126,10 @@
   .artist {
     border: 1px solid var(--rule); border-radius: 2rem; padding: .55rem 1.2rem;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: .9rem; color: var(--bone);
-    background: var(--basalt-2);
+    background: var(--basalt-2); text-decoration: none;
+    transition: color .2s, border-color .2s;
   }
+  a.artist:hover { color: var(--ochre); border-color: var(--ochre); }
   .artist.more { color: var(--ochre); border-style: dashed; }
 
   form { margin-top: 2rem; max-width: 640px; }
@@ -249,8 +251,8 @@
     <p class="bigline">Starting with the Gorge. Not ending there.</p>
     <p>In from the start: Robby Miller and Joseph Broschart — landscape photographers who work this place. Other mediums are welcome; the wall isn't scenery-only.</p>
     <div class="artists">
-      <span class="artist">Robby Miller</span>
-      <span class="artist">Joseph Broschart</span>
+      <a class="artist" href="https://www.robbymillerphotography.com/" target="_blank" rel="noopener noreferrer">Robby Miller</a>
+      <a class="artist" href="https://fineartamerica.com/profiles/joseph-broschart" target="_blank" rel="noopener noreferrer">Joseph Broschart</a>
       <span class="artist more">+ more joining — maybe you?</span>
     </div>
   </div>
