@@ -1,0 +1,17 @@
+# OS junk
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editor / IDE
+.idea/
+*.swp
+*~
+
+# Secrets (if you add env-based config later)
+.env
+.env.*
+!.env.example
+
+# Local tooling (if added later)
+node_modules/

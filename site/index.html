@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anticline Collective — Gorge artists, temporarily everywhere</title>
+<meta name="description" content="A temporary artist collective in the Columbia River Gorge. Movable by design.">
+<style>
+  :root {
+    --basalt: #1c1a17;
+    --basalt-2: #26231f;
+    --bone: #f2ede4;
+    --bone-dim: #c9c2b4;
+    --ochre: #d98e32;
+    --ochre-deep: #b06f1e;
+    --sage: #8a9b7e;
+    --rule: #3a352e;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--basalt);
+    color: var(--bone);
+    font-family: Georgia, 'Times New Roman', serif;
+    line-height: 1.65;
+  }
+  .sans { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+  a { color: var(--ochre); }
+
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1rem 6vw;
+    background: rgba(28,26,23,.92); backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--rule);
+  }
+  nav .mark { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 700; letter-spacing: .18em; font-size: .85rem; text-transform: uppercase; color: var(--bone); text-decoration: none; }
+  nav .mark span { color: var(--ochre); }
+  nav .links a { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; text-decoration: none; color: var(--bone-dim); margin-left: 1.6rem; }
+  nav .links a:hover { color: var(--ochre); }
+  @media (max-width: 640px) { nav .links a { margin-left: .9rem; font-size: .68rem; } }
+
+  header.hero {
+    padding: 14vh 6vw 10vh;
+    position: relative;
+    overflow: hidden;
+  }
+  /* tilted strata suggesting an anticline fold */
+  .strata {
+    position: absolute; inset: 0; z-index: 0; opacity: .55;
+  }
+  .hero-inner { position: relative; z-index: 1; max-width: 880px; }
+  .kicker {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    letter-spacing: .28em; text-transform: uppercase; font-size: .75rem;
+    color: var(--ochre); margin-bottom: 1.2rem;
+  }
+  h1 {
+    font-size: clamp(2.6rem, 7vw, 5rem);
+    line-height: 1.02; font-weight: 400; letter-spacing: -.01em;
+  }
+  h1 em { font-style: italic; color: var(--ochre); }
+  .hero p.lede {
+    margin-top: 1.6rem; font-size: clamp(1.05rem, 2vw, 1.3rem);
+    color: var(--bone-dim); max-width: 620px;
+  }
+  .hero .cta-row { margin-top: 2.4rem; display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    display: inline-block; padding: .85rem 1.7rem; text-decoration: none;
+    letter-spacing: .1em; text-transform: uppercase; font-size: .78rem; font-weight: 600;
+    border: 1px solid var(--ochre); border-radius: 2px;
+    transition: background .2s, color .2s;
+  }
+  .btn.solid { background: var(--ochre); color: var(--basalt); }
+  .btn.solid:hover { background: var(--ochre-deep); border-color: var(--ochre-deep); }
+  .btn.ghost { color: var(--ochre); }
+  .btn.ghost:hover { background: rgba(217,142,50,.12); }
+
+  section { padding: 5.5rem 6vw; border-top: 1px solid var(--rule); }
+  .wrap { max-width: 880px; margin: 0 auto; }
+  h2 {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: .8rem; letter-spacing: .28em; text-transform: uppercase;
+    color: var(--ochre); font-weight: 600; margin-bottom: 2rem;
+  }
+  section p { color: var(--bone-dim); max-width: 640px; margin-bottom: 1.1rem; font-size: 1.05rem; }
+  section p strong { color: var(--bone); font-weight: 600; }
+  .bigline { font-size: clamp(1.4rem, 3vw, 2rem); color: var(--bone); line-height: 1.35; max-width: 760px; margin-bottom: 2rem; }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.2rem; margin-top: 2.2rem; }
+  .card {
+    background: var(--basalt-2); border: 1px solid var(--rule); border-radius: 3px;
+    padding: 1.6rem;
+  }
+  .card h3 { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: .95rem; letter-spacing: .04em; margin-bottom: .6rem; color: var(--bone); }
+  .card p { font-size: .93rem; margin-bottom: 0; }
+  .card .num { color: var(--ochre); font-family: Georgia, serif; font-style: italic; font-size: 1.4rem; display: block; margin-bottom: .5rem; }
+
+  .artists { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 1.6rem; }
+  .artist {
+    border: 1px solid var(--rule); border-radius: 2rem; padding: .55rem 1.2rem;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: .9rem; color: var(--bone);
+    background: var(--basalt-2);
+  }
+  .artist.more { color: var(--ochre); border-style: dashed; }
+
+  form { margin-top: 2rem; max-width: 640px; }
+  label { display: block; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: var(--bone-dim); margin: 1.2rem 0 .4rem; }
+  input, textarea, select {
+    width: 100%; background: var(--basalt-2); border: 1px solid var(--rule); border-radius: 3px;
+    color: var(--bone); padding: .8rem .9rem; font-family: Georgia, serif; font-size: 1rem;
+  }
+  input:focus, textarea:focus, select:focus { outline: 1px solid var(--ochre); border-color: var(--ochre); }
+  textarea { min-height: 120px; resize: vertical; }
+  form .btn { margin-top: 1.6rem; cursor: pointer; background: var(--ochre); color: var(--basalt); border: none; }
+  form .btn:hover { background: var(--ochre-deep); }
+  .formnote { font-size: .85rem !important; color: var(--bone-dim); margin-top: .8rem; }
+
+  footer { padding: 3rem 6vw 4rem; border-top: 1px solid var(--rule); }
+  footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; align-items: baseline; }
+  footer p { color: var(--bone-dim); font-size: .85rem; }
+  footer .paw { color: var(--ochre); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="mark" href="#top">ANTICLINE<span>&nbsp;COLLECTIVE</span></a>
+  <div class="links">
+    <a href="#name">The Name</a>
+    <a href="#how">How It Works</a>
+    <a href="#artists">Artists</a>
+    <a href="#join">Get Involved</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <svg class="strata" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <!-- folded rock strata: an anticline arch -->
+    <path d="M-50,640 Q600,90 1250,640" fill="none" stroke="#3a352e" stroke-width="2"/>
+    <path d="M-50,700 Q600,170 1250,700" fill="none" stroke="#463f35" stroke-width="2"/>
+    <path d="M-50,760 Q600,250 1250,760" fill="none" stroke="#3a352e" stroke-width="2"/>
+    <path d="M-50,820 Q600,330 1250,820" fill="none" stroke="#57503f" stroke-width="2"/>
+    <path d="M-50,880 Q600,410 1250,880" fill="none" stroke="#3a352e" stroke-width="2"/>
+    <path d="M-50,940 Q600,490 1250,940" fill="none" stroke="#463f35" stroke-width="2"/>
+    <path d="M-50,1000 Q600,570 1250,1000" fill="none" stroke="#d98e32" stroke-width="2" opacity=".5"/>
+  </svg>
+  <div class="hero-inner">
+    <p class="kicker">Columbia River Gorge · est. 2026 · until further notice</p>
+    <h1>Art that moves.<br>Because it <em>has</em> to.</h1>
+    <p class="lede">Anticline Collective is a temporary artist collective in the Gorge — a real storefront, movable walls, and a crew of local artists showing work made here, about here, and about everything else. When the popups call, we roll out. When a tenant signs, we fold up. That's the deal, and we like it.</p>
+    <div class="cta-row">
+      <a class="btn solid" href="#join">Get Involved</a>
+      <a class="btn ghost" href="#name">Why "Anticline"?</a>
+    </div>
+  </div>
+</header>
+
+<section id="name">
+  <div class="wrap">
+    <h2>The Name</h2>
+    <p class="bigline">Everyone in the Gorge calls Coyote Wall "the Syncline." One problem: it's an anticline.</p>
+    <p>The great wall of basalt above Bingen is folded rock pushed <strong>up</strong> — geologists call it the Bingen Anticline. The actual syncline, the downfold, sits under the Columbia River where nobody rides bikes. The nickname stuck anyway, and locals have argued about it in parking lots ever since.</p>
+    <p>We're named for the thing everybody sees and nobody calls by its right name. Pressure from all sides, folded, uplifted — still standing. If that's not a Gorge artist, what is?</p>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <h2>How It Works</h2>
+    <p class="bigline">A gallery with wheels under everything and no illusions about permanence.</p>
+    <div class="grid">
+      <div class="card">
+        <span class="num">01</span>
+        <h3>Commission, not rent</h3>
+        <p>No monthly nut hanging over anybody. When work sells, the space and the collective take a cut. Sell nothing, owe nothing. Final split is being worked out — join the conversation and help shape it.</p>
+      </div>
+      <div class="card">
+        <span class="num">02</span>
+        <h3>Movable by design</h3>
+        <p>Walls, panels, and display fixtures that break down and load into a truck. The same kit that fills the storefront works a First Friday in the Gorge or a Last Thursday on Alberta.</p>
+      </div>
+      <div class="card">
+        <span class="num">03</span>
+        <h3>Stewards on site</h3>
+        <p>The salon and esthetician who share the building keep the doors open and eyes on the work daily — and earn commission for it. Artists make art; stewards mind the floor.</p>
+      </div>
+      <div class="card">
+        <span class="num">04</span>
+        <h3>Honest terms</h3>
+        <p>The space is ours until a long-term tenant signs. Security cameras are going in, and we're sorting coverage for work on display. Everything is built to survive a move — including the name.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="artists">
+  <div class="wrap">
+    <h2>The Artists</h2>
+    <p class="bigline">Gorge people, not just Gorge landscapes.</p>
+    <p>Some of the work is about this place. A lot of it isn't — it's just made by people who live here. Both belong on the wall.</p>
+    <div class="artists">
+      <span class="artist">Robby Miller</span>
+      <span class="artist">Joseph Broschart</span>
+      <span class="artist">Claire Stevenson</span>
+      <span class="artist more">+ more joining — maybe you?</span>
+    </div>
+  </div>
+</section>
+
+<section id="join">
+  <div class="wrap">
+    <h2>Get Involved</h2>
+    <p class="bigline">This thing gets shaped by whoever shows up early.</p>
+    <p>The real discussion happens on our Discord — commission structure, the space layout, popup schedule, all of it is still being decided. Want in? Say hello below or jump straight into the server.</p>
+    <p><a class="btn ghost" href="#" title="Discord invite coming soon">Join the Discord →</a></p>
+    <form id="joinForm">
+      <label for="f-name">Name</label>
+      <input id="f-name" name="name" required placeholder="Your name">
+      <label for="f-medium">What do you make?</label>
+      <input id="f-medium" name="medium" placeholder="Painting, ceramics, photography, weird stuff…">
+      <label for="f-links">Where can we see it?</label>
+      <input id="f-links" name="links" placeholder="Instagram, website, or 'come to my garage'">
+      <label for="f-msg">Anything else</label>
+      <textarea id="f-msg" name="message" placeholder="Ideas for the space, questions, what you'd want out of a collective…"></textarea>
+      <button class="btn" type="submit">Send It</button>
+      <p class="formnote">Opens an email to Daniel with your answers filled in — nothing is stored on this page.</p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Anticline Collective · Columbia River Gorge, WA/OR</p>
+    <p>Quality control by Gilmore <span class="paw">🐾</span> resident dog</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('joinForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var f = new FormData(this);
+    var body =
+      'Name: ' + (f.get('name') || '') + '\n' +
+      'Makes: ' + (f.get('medium') || '') + '\n' +
+      'Links: ' + (f.get('links') || '') + '\n\n' +
+      (f.get('message') || '');
+    window.location.href = 'mailto:daniel@anvilware.com'
+      + '?subject=' + encodeURIComponent('Anticline Collective — ' + (f.get('name') || 'new artist'))
+      + '&body=' + encodeURIComponent(body);
+  });
+</script>
+
+</body>
+</html>
