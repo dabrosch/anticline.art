@@ -51,8 +51,8 @@
   nav .mark {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-weight: 700; letter-spacing: .18em;
-    /* ~0.85rem near phone/mid widths; reaches 1.85rem only on large viewports */
-    font-size: clamp(0.85rem, 0.05rem + 1.8vw, 1.85rem);
+    /* Bigger floor on phones; still caps at 1.85rem on large viewports */
+    font-size: clamp(1.15rem, 0.35rem + 1.5vw, 1.85rem);
     text-transform: uppercase; color: var(--bone); text-decoration: none;
     /* Same gap token: Peak↔ANTICLINE = ANTICLINE↔COLLECTIVE = min title↔menu */
     display: inline-flex; align-items: baseline; gap: var(--nav-word-gap); line-height: 1;
