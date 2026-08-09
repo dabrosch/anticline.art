@@ -34,18 +34,36 @@
   a { color: var(--ochre); }
 
   nav {
+    /* Same token for title word gap and min space before the menu.
+       Flex wrap (not a px breakpoint) decides when the menu drops. */
+    --nav-word-gap: 0.65em;
     position: sticky; top: 0; z-index: 10;
-    display: flex; justify-content: space-between; align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    column-gap: var(--nav-word-gap);
+    row-gap: .85rem;
     padding: 1rem 6vw;
     background: rgba(28,26,23,.92); backdrop-filter: blur(6px);
     border-bottom: 1px solid var(--rule);
   }
-  nav .mark { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 700; letter-spacing: .18em; font-size: .85rem; text-transform: uppercase; color: var(--bone); text-decoration: none; display: inline-flex; align-items: baseline; gap: .55rem; }
+  nav .mark {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 700; letter-spacing: .18em; font-size: .85rem;
+    text-transform: uppercase; color: var(--bone); text-decoration: none;
+    display: inline-flex; align-items: baseline; gap: .55rem; line-height: 1;
+  }
   nav .mark svg { height: 1.4em; width: auto; aspect-ratio: 56 / 49.5; flex-shrink: 0; display: block; overflow: visible; }
-  nav .mark span { color: var(--ochre); }
-  nav .links a { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; text-decoration: none; color: var(--bone-dim); margin-left: 1.6rem; }
+  nav .mark-title { display: inline-flex; align-items: baseline; gap: var(--nav-word-gap); }
+  nav .mark-title .mark-sub { color: var(--ochre); }
+  nav .links { display: flex; flex-wrap: wrap; align-items: baseline; gap: .65rem 1.4rem; }
+  nav .links a { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; text-decoration: none; color: var(--bone-dim); line-height: 1; }
   nav .links a:hover { color: var(--ochre); }
-  @media (max-width: 640px) { nav .links a { margin-left: .9rem; font-size: .68rem; } }
+  @media (max-width: 480px) {
+    nav .links { gap: .55rem 1.1rem; }
+    nav .links a { font-size: .68rem; }
+  }
 
   header.hero {
     padding: 14vh 6vw 10vh;
@@ -152,7 +170,10 @@
         <path d="M22 54 Q32 34 42 54" fill="none" stroke="#3a352e" stroke-width="2"/>
       </g>
     </svg>
-    ANTICLINE<span>&nbsp;COLLECTIVE</span>
+    <span class="mark-title">
+      <span>ANTICLINE</span>
+      <span class="mark-sub">COLLECTIVE</span>
+    </span>
   </a>
   <div class="links">
     <a href="#name">The Name</a>
