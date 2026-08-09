@@ -203,7 +203,7 @@
   form .btn:hover { background: var(--ochre-deep); }
   .formnote { font-size: .85rem !important; color: var(--bone-dim); margin-top: .8rem; }
 
-  footer { padding: 3rem 6vw 4rem; border-top: 1px solid var(--rule); }
+  footer { padding: 3rem 6vw 2.5rem; border-top: 1px solid var(--rule); }
   footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; align-items: baseline; }
   footer p { color: var(--bone-dim); font-size: .85rem; }
   footer a {
@@ -213,6 +213,35 @@
     transition: color .2s, border-color .2s;
   }
   footer a:hover { color: var(--ochre); border-bottom-color: var(--ochre); }
+
+  /* Quiet closer — below footer, not competing with address */
+  .closer {
+    --closer-height: min(42vh, 420px);
+    --closer-wash: 0.28;
+    border-top: 1px solid var(--rule);
+  }
+  .closer figure { margin: 0; position: relative; }
+  .closer img {
+    display: block; width: 100%; height: var(--closer-height);
+    object-fit: cover; object-position: 55% 98%;
+    filter: brightness(0.92) saturate(0.9);
+  }
+  .closer figure::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: rgba(28, 26, 23, var(--closer-wash));
+    pointer-events: none;
+  }
+  .closer figcaption {
+    padding: .7rem 6vw 2.25rem;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: .75rem;
+    font-style: italic;
+    letter-spacing: 0;
+    text-transform: none;
+    text-align: right;
+    color: var(--bone-dim);
+  }
 </style>
 </head>
 <body>
@@ -324,9 +353,16 @@
 <footer>
   <div class="wrap">
     <p>Anticline Collective · Columbia River Gorge</p>
-    <p><a href="https://maps.google.com/?q=137+E+Jewett+Blvd,+White+Salmon,+WA+98672" target="_blank" rel="noopener noreferrer">137 E Jewett Blvd, White Salmon, WA 98672</a></p>
+    <p><em>Proposed:</em> <a href="https://maps.google.com/?q=137+E+Jewett+Blvd,+White+Salmon,+WA+98672" target="_blank" rel="noopener noreferrer">137 E Jewett Blvd, White Salmon, WA</a></p>
   </div>
 </footer>
+
+<div class="closer">
+  <figure>
+    <img src="/stacker-fog.jpg" alt="Dog standing in fog and snow near Stacker Butte in the Columbia Hills" width="1024" height="891" loading="lazy" decoding="async">
+    <figcaption>Gilmore · Columbia Hills anticline</figcaption>
+  </figure>
+</div>
 
 </body>
 </html>
