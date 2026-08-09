@@ -127,7 +127,13 @@
   footer { padding: 3rem 6vw 4rem; border-top: 1px solid var(--rule); }
   footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; align-items: baseline; }
   footer p { color: var(--bone-dim); font-size: .85rem; }
-  footer .paw { color: var(--ochre); }
+  footer a {
+    color: var(--bone-dim);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: color .2s, border-color .2s;
+  }
+  footer a:hover { color: var(--ochre); border-bottom-color: var(--ochre); }
 </style>
 </head>
 <body>
@@ -235,6 +241,7 @@
 <footer>
   <div class="wrap">
     <p>Anticline Collective · Columbia River Gorge, WA/OR</p>
+    <p><a href="https://maps.google.com/?q=137+E+Jewett+Blvd,+White+Salmon,+WA+98672" target="_blank" rel="noopener noreferrer">137 E Jewett Blvd, White Salmon, WA 98672</a></p>
   </div>
 </footer>
 
