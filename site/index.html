@@ -40,8 +40,8 @@
     background: rgba(28,26,23,.92); backdrop-filter: blur(6px);
     border-bottom: 1px solid var(--rule);
   }
-  nav .mark { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 700; letter-spacing: .18em; font-size: .85rem; text-transform: uppercase; color: var(--bone); text-decoration: none; display: inline-flex; align-items: center; gap: .55rem; }
-  nav .mark svg { width: 1.35rem; height: 1.35rem; flex-shrink: 0; }
+  nav .mark { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 700; letter-spacing: .18em; font-size: .85rem; text-transform: uppercase; color: var(--bone); text-decoration: none; display: inline-flex; align-items: baseline; gap: .55rem; }
+  nav .mark svg { height: 1.4em; width: auto; aspect-ratio: 56 / 49.5; flex-shrink: 0; display: block; overflow: visible; }
   nav .mark span { color: var(--ochre); }
   nav .links a { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; text-decoration: none; color: var(--bone-dim); margin-left: 1.6rem; }
   nav .links a:hover { color: var(--ochre); }
@@ -140,10 +140,17 @@
 
 <nav>
   <a class="mark" href="#top" aria-label="Anticline Collective">
-    <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <svg viewBox="4 6 56 49.5" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <clipPath id="nav-peak-clip">
+          <path d="M6 54 Q32 8 58 54 Z"/>
+        </clipPath>
+      </defs>
       <path d="M6 54 Q32 8 58 54 Z" fill="#26231f" stroke="#d98e32" stroke-width="2.5"/>
-      <path d="M14 54 Q32 22 50 54" fill="none" stroke="#57503f" stroke-width="2"/>
-      <path d="M22 54 Q32 34 42 54" fill="none" stroke="#3a352e" stroke-width="2"/>
+      <g clip-path="url(#nav-peak-clip)">
+        <path d="M14 54 Q32 22 50 54" fill="none" stroke="#57503f" stroke-width="2"/>
+        <path d="M22 54 Q32 34 42 54" fill="none" stroke="#3a352e" stroke-width="2"/>
+      </g>
     </svg>
     ANTICLINE<span>&nbsp;COLLECTIVE</span>
   </a>
